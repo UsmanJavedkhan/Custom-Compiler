@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node / Vite (frontend)
+node_modules/
+dist/
+.vite/
+
+# Logs / OS
+*.log
+.DS_Store
+Thumbs.db
+
+# Editor / local tooling
+.claude/
+.vscode/
+.idea/

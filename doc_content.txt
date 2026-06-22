@@ -1,0 +1,532 @@
+﻿SMILE
+Syntax Memes In Lahori English
+Compiler Construction Lab — Week 1 Submission
+Language Name:
+SMILE
+Full Name:
+Syntax Memes In Lahori English
+Theme:
+Roman Urdu / Pakistani Meme Culture
+Subject:
+Compiler Construction
+Lab Week:
+Week 1
+1. Core Philosophy of SMILE
+SMILE (Syntax Memes In Lahori English) is a completely original mini programming language designed around Pakistani internet culture, Roman Urdu, and meme-based vocabulary. No keyword in SMILE copies any existing programming language.
+The language philosophy follows three principles:
+Originality — Every keyword is invented and culturally grounded in Roman Urdu.
+Readability — The language reads like spoken Pakistani English / Urdu, making it memorable.
+Consistency — Every rule is uniformly applied across all constructs.
+2. Language Specification
+All keywords, operators, and delimiters are original inventions. Standard keywords such as int, if, while, return, and print are forbidden in SMILE.
+2.1 Data Types
+SMILE Keyword
+Standard Equivalent
+Meaning
+Token Category
+adad
+int
+Integer number variable
+KEYWORD
+desi
+float
+Decimal / floating-point
+KEYWORD
+baat
+string
+Text / string variable
+KEYWORD
+sach jhooth
+bool
+Boolean type
+KEYWORD
+khaali
+null
+Null / empty value
+KEYWORD
+2.2 Boolean Literals
+SMILE Keyword
+Standard Equivalent
+Meaning
+Token Category
+bilkul
+true
+Logical true
+BOOLEAN
+nahi
+false
+Logical false
+BOOLEAN
+2.3 Arithmetic Operators
+SMILE Keyword
+Standard Equivalent
+Meaning
+Token Category
+joro
++
+Addition
+OPERATOR
+ghata
+-
+Subtraction
+OPERATOR
+guna
+*
+Multiplication
+OPERATOR
+taqseem
+/
+Division
+OPERATOR
+bacha
+%
+Modulus
+OPERATOR
+2.4 Comparison Operators
+SMILE Keyword
+Standard Equivalent
+Meaning
+Token Category
+zyada
+>
+Greater than
+OPERATOR
+kam
+<
+Less than
+OPERATOR
+barabar
+==
+Equal to
+OPERATOR
+na barabar
+!=
+Not equal to
+OPERATOR
+zyada ya barabar
+>=
+Greater than or equal to
+OPERATOR
+kam ya barabar
+<=
+Less than or equal to
+OPERATOR
+2.5 Logical Operators
+SMILE Keyword
+Standard Equivalent
+Meaning
+Token Category
+aur
+&&
+Logical AND
+OPERATOR
+ya
+||
+Logical OR
+OPERATOR
+ulta
+!
+Logical NOT
+OPERATOR
+2.6 Control Flow Keywords
+SMILE Keyword
+Standard Equivalent
+Meaning
+Token Category
+agar
+if
+Conditional statement
+KEYWORD
+warna
+else
+Else branch
+KEYWORD
+warna agar
+else if
+Else-if branch
+KEYWORD
+jab tak
+while
+While loop
+KEYWORD
+baar baar
+for
+For loop
+KEYWORD
+rok
+break
+Break out of loop
+KEYWORD
+agla
+continue
+Skip to next iteration
+KEYWORD
+2.7 Function Keywords
+SMILE Keyword
+Standard Equivalent
+Meaning
+Token Category
+kaam
+function / def
+Define a function
+KEYWORD
+lo
+param
+Function parameter
+KEYWORD
+bula
+call
+Call a function
+KEYWORD
+wapas de
+return
+Return from function
+KEYWORD
+2.8 Input / Output / Program Structure
+SMILE Keyword
+Standard Equivalent
+Meaning
+Token Category
+shuru karo
+main()
+Program entry point
+KEYWORD
+khatam
+}
+End of program
+KEYWORD
+shuru
+{
+Open a block
+DELIMITER
+banda
+}
+Close a block
+DELIMITER
+bas
+;
+Statement terminator
+DELIMITER
+rakho
+=
+Assignment operator
+OPERATOR
+batao
+print
+Print to output
+KEYWORD
+lo bhi
+input
+Take user input
+KEYWORD
+~ text ~
+// text
+Single-line comment
+COMMENT
+2.9 Error System
+SMILE Keyword
+Standard Equivalent
+Meaning
+Token Category
+faaaah
+Error/Exception
+Runtime / compile-time error message
+ERROR
+3. Token Identification
+Every element in SMILE belongs to exactly one token category. The six categories are:
+KEYWORD — reserved words that control language structure and logic
+IDENTIFIER — programmer-defined variable and function names
+OPERATOR — symbols/words that perform computations or comparisons
+NUMBER — numeric literal values (integers and decimals)
+DELIMITER — structural tokens that define statement and block boundaries
+STRING — text literals enclosed in double quotes
+4. Regular Expressions
+Each token type is defined by a formal regular expression pattern used by the SMILE lexer.
+Token Name
+Category
+Regex Pattern
+Keywords
+KEYWORD
+(shuru karo|khatam|adad|desi|baat|sach jhooth|khaali|agar|warna agar|warna|jab tak|baar baar|rok|agla|kaam|lo bhi|lo|bula|wapas de|batao|bilkul|nahi)
+Assignment
+OPERATOR
+rakho
+Arithmetic operators
+OPERATOR
+(joro|ghata|guna|taqseem|bacha)
+Comparison operators
+OPERATOR
+(zyada ya barabar|kam ya barabar|na barabar|zyada|kam|barabar)
+Logical operators
+OPERATOR
+(aur|ya|ulta)
+Block open
+DELIMITER
+shuru
+Block close
+DELIMITER
+banda
+Statement end
+DELIMITER
+bas
+Identifier
+IDENTIFIER
+[a-zA-Z][a-zA-Z0-9_]*
+Integer literal
+NUMBER
+[0-9]+
+Decimal literal
+NUMBER
+[0-9]+\.[0-9]+
+String literal
+STRING
+"[^"]*"
+Comment
+COMMENT
+~[^~]*~
+Whitespace
+SKIP
+[ \t\n\r]+
+5. Sample Programs
+5.1 Valid Program 1 — Even / Odd Checker
+Checks whether a number is even or odd using the modulus operator (bacha) and an if-else construct.
+~ Program 1: Even ya Odd check karo ~
+shuru karo
+  adad number rakho 14 bas
+  adad baqi rakho number bacha 2 bas
+  agar baqi barabar 0 shuru
+    batao "Even hai bhai" bas
+  banda
+  warna shuru
+    batao "Odd hai yaar" bas
+  banda
+khatam
+Token Breakdown:
+Token Name
+Category
+Regex Pattern
+shuru karo
+KEYWORD
+Program entry point
+adad
+KEYWORD
+Integer type declaration
+number, baqi
+IDENTIFIER
+Programmer-defined variable names
+rakho
+OPERATOR
+Assignment
+14, 2, 0
+NUMBER
+Integer literals
+bas
+DELIMITER
+Statement terminator
+bacha
+OPERATOR
+Modulus operator
+agar, warna
+KEYWORD
+If-else control flow
+barabar
+OPERATOR
+Equality comparison
+shuru, banda
+DELIMITER
+Block open / close
+batao
+KEYWORD
+Print output
+"Even hai bhai"
+STRING
+String literal
+khatam
+KEYWORD
+Program end
+5.2 Valid Program 2 — Countdown Loop
+Counts down from 5 to 1 using a while loop (jab tak) with the >= operator, then prints a message.
+~ Program 2: 5 se 1 tak ginti ulti ~
+shuru karo
+  adad ginti rakho 5 bas
+  jab tak ginti zyada ya barabar 1 shuru
+    batao ginti bas
+    ginti rakho ginti ghata 1 bas
+  banda
+  batao "Blast off bhai!" bas
+khatam
+Token Breakdown:
+Token Name
+Category
+Regex Pattern
+shuru karo
+KEYWORD
+Program entry point
+adad
+KEYWORD
+Integer type declaration
+ginti
+IDENTIFIER
+Loop counter variable
+rakho
+OPERATOR
+Assignment
+5, 1
+NUMBER
+Integer literals
+bas
+DELIMITER
+Statement terminator
+jab tak
+KEYWORD
+While loop
+zyada ya barabar
+OPERATOR
+Greater than or equal to (>=)
+shuru, banda
+DELIMITER
+Block open / close
+batao
+KEYWORD
+Print output
+ghata
+OPERATOR
+Subtraction
+"Blast off bhai!"
+STRING
+String literal
+khatam
+KEYWORD
+Program end
+5.3 Valid Program 3 — Grade Calculator (Function)
+Defines a function (kaam) that accepts marks as a parameter (lo) and returns a grade string using an else-if chain (warna agar). The main block calls the function using bula.
+~ Program 3: Grade calculator ~
+kaam grade_nikalo lo marks shuru
+  agar marks zyada ya barabar 80 shuru
+    wapas de "A -- Masha Allah!" bas
+  banda
+  warna agar marks zyada ya barabar 60 shuru
+    wapas de "B -- Theek hai" bas
+  banda
+  warna shuru
+    wapas de "Fail -- Agli baar bhai" bas
+  banda
+banda
+shuru karo
+  adad myMarks rakho 75 bas
+  batao bula grade_nikalo myMarks bas
+khatam
+Token Breakdown:
+Token Name
+Category
+Regex Pattern
+kaam
+KEYWORD
+Function definition
+grade_nikalo
+IDENTIFIER
+Function name
+lo
+KEYWORD
+Function parameter
+marks
+IDENTIFIER
+Parameter name
+agar, warna agar
+KEYWORD
+If / else-if conditions
+zyada ya barabar
+OPERATOR
+Greater than or equal to (>=)
+80, 60, 75
+NUMBER
+Integer literals
+wapas de
+KEYWORD
+Return statement
+shuru, banda
+DELIMITER
+Block open / close
+shuru karo
+KEYWORD
+Program entry point
+adad
+KEYWORD
+Integer declaration
+myMarks
+IDENTIFIER
+Variable name
+rakho
+OPERATOR
+Assignment
+batao, bula
+KEYWORD
+Print and function call
+bas
+DELIMITER
+Statement terminator
+khatam
+KEYWORD
+Program end
+5.4 Invalid Program 1 — Missing 'bas' Terminator
+Statements are written without the required 'bas' terminator. The lexer cannot determine where one statement ends and the next begins.
+~ Error: bas bhool gaye ~
+shuru karo
+  adad x rakho 10        <- bas missing!
+  adad y rakho 20        <- bas missing!
+  batao x joro y bas
+khatam
+faaaah: line 2 -> statement khatam nahi hua, 'bas' lagao yaar
+faaaah: line 3 -> phir se wahi galti, 'bas' kahan hai bhai?
+Total errors: 2 -- program nahi chalay ga
+Reason: SMILE's grammar requires every statement to end with 'bas'. Without it, the lexer treats both statements as one continuous token stream, causing a parse error.
+5.5 Invalid Program 2 — Identifier Starts with Number
+Variable names begin with digits, violating the SMILE identifier rule: [a-zA-Z][a-zA-Z0-9_]*
+~ Error: galat identifier naam ~
+shuru karo
+  adad 3score rakho 100 bas    <- invalid identifier!
+  adad 99life rakho 3 bas      <- invalid identifier!
+  batao 3score bas
+khatam
+faaaah: line 2 -> '3score' valid identifier nahi -- number se start nahi hota bhai
+faaaah: line 3 -> '99life' bhi galat hai -- pehle letter, phir number
+Total errors: 2 -- sahi naam rakho, yaar
+Reason: SMILE identifier regex is [a-zA-Z][a-zA-Z0-9_]* — must start with a letter. '3score' starts with a digit so the lexer classifies it as a malformed NUMBER token, triggering a type error.
+5.6 Invalid Program 3 — Block Never Closed
+A 'shuru' block is opened for the if-condition but the matching 'banda' is never written, causing an unclosed block error.
+~ Error: banda bhool gaye ~
+shuru karo
+  adad age rakho 17 bas
+  agar age kam 18 shuru
+    batao "Abhi chota hai" bas
+    ~ banda yahan hona chahiye tha! ~
+  batao "Program khatam" bas
+khatam        <- banda missing for agar block!
+faaaah: line 4 -> 'shuru' se block khola tha
+faaaah: line 9 -> 'khatam' mil gaya lekin 'banda' nahi aaya -- block band karo pehle
+Total errors: 1 -- structure theek karo bhai
+Reason: Every 'shuru' must have a matching 'banda'. The parser tracks block depth on a stack. When 'khatam' arrives with an open block still on the stack, it throws an unclosed block error.
+6. Design Choices & Justification
+Every design decision in SMILE is intentional. Below are the key choices and their rationale for the viva.
+6.1  Why 'bas' instead of ';' ?
+'Bas' is Roman Urdu for 'that's it' or 'done'. When a Pakistani speaker finishes a sentence they say 'bas' — it naturally signals the end of a thought. This makes SMILE's statement terminator semantically meaningful rather than an arbitrary punctuation mark.
+6.2  Why 'shuru / banda' for blocks?
+'Shuru' means 'start' and 'banda' means 'closed/shut' in Roman Urdu. They form a clear oppositional pair that mirrors the opening and closing of curly braces { } in standard languages, but with human-readable meaning. A programmer can read the code aloud and immediately understand its structure.
+6.3  Why 'faaaah' for errors?
+'Faaaah' is Pakistani internet slang expressing frustration or failure — it is the natural reaction when something goes wrong. Using it as the error prefix makes compiler error messages culturally resonant, memorable, and actually informative in Roman Urdu. It also distinguishes SMILE error output from any standard compiler.
+6.4  Why 'adad' for integers?
+'Adad' is the actual Urdu word for number or digit. It was chosen because it is semantically accurate — unlike arbitrary keywords, it directly communicates the variable's purpose to any Roman Urdu speaker, keeping the language self-documenting.
+6.5  Why 'shuru karo' as the program entry point?
+'Shuru karo' means 'let us begin' in Urdu. Every SMILE program starts with this phrase — the programmer is literally telling the computer to start. It replaces main() with a natural language equivalent that any Urdu speaker intuitively understands.
+6.6  Why word-based operators instead of symbols?
+SMILE deliberately avoids operator symbols like +, -, >, == and replaces them with words (joro, ghata, zyada, barabar). This choice makes expressions readable as sentences. For example: 'agar marks zyada ya barabar 60' reads as 'if marks greater than or equal to 60' — no symbol decoding required.
+6.7  Why Roman Urdu and not pure English?
+Roman Urdu (Urdu written in English letters) is the dominant written form of informal Pakistani communication — used in WhatsApp, Twitter, memes, and everyday texting. SMILE's target audience is Pakistani students, so using their natural written voice makes the language immediately accessible, fun to write, and easy to remember.
+7. Summary
+SMILE is a complete, original, and logically consistent mini programming language. It meets all Week 1 deliverable requirements:
+Unique language definition with 35+ original keywords across 8 categories.
+Complete token list with 6 token categories: KEYWORD, IDENTIFIER, OPERATOR, NUMBER, DELIMITER, STRING.
+Formal regular expressions defined for every token type.
+3 valid programs with full token breakdowns (Even/Odd, Countdown Loop, Grade Calculator).
+3 invalid programs with faaaah error messages and technical error explanations.
+7 documented design choices ready for viva explanation.

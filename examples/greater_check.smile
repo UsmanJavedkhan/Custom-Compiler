@@ -1,0 +1,12 @@
+~ Do values ek variable mein rakho aur greater value check karo ~
+shuru karo
+  adad a rakho 25 bas
+  adad b rakho 40 bas
+
+  agar a zyada b shuru
+    batao "a bara hai" bas
+  banda
+  warna shuru
+    batao "b bara hai ya barabar" bas
+  banda
+khatam
